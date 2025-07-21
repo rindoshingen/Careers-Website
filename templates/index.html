@@ -9,7 +9,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body class="flex flex-col justify-self-center max-w-3xl min-h-screen font-sans p-7">
+<body class="flex flex-col sm:w-xl sm:justify-self-center min-h-screen font-sans p-7">
     <header>
         <h1 class="text-3xl font-semibold">{{ company_name }}</h1>
         <h5 class="mb-7">A Python Flask Test Career Website</h5>
@@ -18,17 +18,9 @@
     <main>
         <section class="mb-5">
             <h2 class="text-2xl font-semibold mb-5">Open Positions</h3>
-                <ul class="mb-5">
-                    <li>
-                        <h3 class="text-lg font-semibold mb-1">Career Title Here</h3>
-                        <p>
-                            Aut voluptas autem At amet cumque eos pariatur saepe est natus quia nam aliquid temporibus.
-                            Qui dicta enim sed rerum sint est expedita voluptatum qui error omnis. Ab eveniet galisum
-                            sit assumenda cupiditate ex provident rerum et magni voluptas in odit molestias At magnam
-                            deserunt.
-                        </p>
-                    </li>
-                </ul>
+                {% for job in jobs %}
+                {% include 'job-item.html' %}
+                {% endfor %}
                 <button class="px-3.5 py-2 bg-neutral-700 font-semibold text-xs uppercase text-white">
                     <a href-"/contact" title="Contact Us">
                         Contact Us
@@ -38,7 +30,7 @@
     </main>
 
     <footer class="mt-auto text-sm">
-        &copy; 2025 Careers Website.
+        &copy; 2025 {{ company_name }}.
     </footer>
 </body>
 
