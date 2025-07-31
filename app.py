@@ -28,10 +28,28 @@ JOBS = [
     }
 ]
 
-@app.route("/")
+@app.route('/')
 def index():
-    return render_template("index.html", jobs=JOBS, company_name="Careers Website")
+    return render_template(
+        'index.html', 
+        jobs=JOBS, 
+        company_name='Careers Website',
+        company_tagline='A Python Flask Test Career Website')
 
-@app.route("/jobs")
+@app.route('/jobs')
 def list_jobs():
     return jsonify(JOBS)
+
+@app.route('/about')
+def about():
+    return render_template(
+        'about.html',
+        company_name='Careers Website',
+        company_tagline='A Python Flask Test Career Website')
+
+@app.route('/contact')
+def contact():
+    return render_template(
+        'contact.html',
+        company_name='Careers Website',
+        company_tagline='A Python Flask Test Career Website')
