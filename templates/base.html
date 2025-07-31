@@ -5,7 +5,7 @@
     {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ company_name }}</title>
+    <title>{{ company_name }} / {{ page_title }}</title>
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {% endblock %}
@@ -16,15 +16,15 @@
         <h1 class="site-title">
             <a href="{{ url_for('index') }}" title="Home Page">{{ company_name }}</a>
         </h1>
-        <h5 class="site-tagline">{{ company_tagline }}</h5>
-        <nav class="nav-wrapper">
-            <ul class="nav">
-                <li><a href="/jobs">Jobs</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
     </header>
+    <h5 class="site-tagline">{{ company_tagline }}</h5>
+    <nav class="nav-wrapper">
+        <ul class="nav">
+            <li><a href="/jobs">Jobs</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
 
     {% block content %}{% endblock %}
 

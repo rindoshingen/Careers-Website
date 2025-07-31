@@ -1,55 +1,40 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template
+from data import JOBS
 
 app = Flask(__name__)
 
-JOBS = [
-    {
-      'id': 1,
-      'title': 'Data Analyst',
-      'location': 'Victoria, BC',
-      'salary': '$70K-90K'  
-    },
-    {
-      'id': 2,
-      'title': 'Frontend Developer',
-      'location': 'Calgary, AB',
-      'salary': '$50K-60K'  
-    },
-    {
-      'id': 3,
-      'title': 'Backend Developer',
-      'location': 'Vancouver, BC',
-      'salary': '$80K-110K'  
-    },
-    {
-      'id': 4,
-      'title': 'Security Analyst',
-      'location': 'Kelowna, BC',
-    }
-]
+company_name = 'Careers Website'
+company_tagline = 'A Python Flask Test Career Website'
+
+@app.context_processor
+def inject_globals():
+    return dict(company_name=company_name, company_tagline=company_tagline)
 
 @app.route('/')
 def index():
     return render_template(
         'index.html', 
-        jobs=JOBS, 
-        company_name='Careers Website',
-        company_tagline='A Python Flask Test Career Website')
+        page_title='Homepage',
+        show_header=True)
 
 @app.route('/jobs')
-def list_jobs():
-    return jsonify(JOBS)
+def jobs():
+    return render_template(
+        'jobs.html', 
+        jobs=JOBS,
+        page_title='Jobs Page',
+        show_header=True)
 
 @app.route('/about')
 def about():
     return render_template(
         'about.html',
-        company_name='Careers Website',
-        company_tagline='A Python Flask Test Career Website')
+        page_title='About Page',
+        show_header=True)
 
 @app.route('/contact')
 def contact():
     return render_template(
         'contact.html',
-        company_name='Careers Website',
-        company_tagline='A Python Flask Test Career Website')
+        page_title='Contact Page',
+        show_header=True)

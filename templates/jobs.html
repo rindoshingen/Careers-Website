@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+
+{% block content %}
+<main>
+    <section>
+        <h1>{{ page_title }}</h1>
+        <p class="jobs-description">
+            Below you will see the latest job postings. Feel free to apply to anyone that you think you might be suited
+            for.
+        </p>
+        {% for job in jobs %}
+        {% include 'job-item.html' %}
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}

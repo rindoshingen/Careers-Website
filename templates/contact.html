@@ -4,7 +4,27 @@
 {% block content %}
 <main>
     <section>
-        <h1>Contact Page</h1>
+        <h1 class="contact-title">Contact Page</h1>
+        <p class="contact-description">
+            Ut inventore consequatur aut eligendi dolorumEt optio aut voluptatum voluptatem ut minus omnis 33 saepe unde
+            sit quia
+            impedit. Et harum quidem ea doloremque vitaeest repellat ad ipsum ipsum qui iure corrupti. Ab iste
+            voluptates Nam esse
+            qui dolorum libero et numquam distinctio et officiis praesentium et sunt nihil.
+        </p>
+        <form class="form-wrapper" action="POST">
+            <div class="form-container">
+                <div class="form-name">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" name="Name">
+                </div>
+                <div class="form-email">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="Email">
+                </div>
+            </div>
+            <button class="form-submit">Submit</button>
+        </form>
     </section>
 </main>
 {% endblock %}
